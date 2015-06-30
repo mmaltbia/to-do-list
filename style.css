@@ -1,0 +1,38 @@
+body {
+	background-color: #04AEDA;
+
+}
+
+h1 {
+	color: white;
+}
+
+img#pad{
+	height: 100px;
+}
+
+ul#toDo_list {
+	list-style: none;
+	line-height: 3;
+}
+li.item{
+	padding-left: px;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 50px;
+  line-height: 25px;
+}
+
+p {
+  margin: 0 0 10px;
+  display: inline;
+  margin-left: 20px;
+  color: #fff;
+}
