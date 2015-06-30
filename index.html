@@ -7,20 +7,18 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+  
+  <!--Google Fonts-->
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:700|Raleway' rel='stylesheet' type='text/css'>
   <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container col-xs-12">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3 inner-cont">
         <div class="text-center">
-          <div id="notepad">
-            <img id="pad" src="http://www.icon2s.com/img256/256x256-notepad-windows-8-metro-style.png"/>
-          </div>
           <h1>To Do List</h1>
-          <hr>
           <form id="new_todo_item">
             <div class="form-group">
               <input class="form-control" id="item_name" placeholder="What do you need to do?" autofocus>
@@ -32,14 +30,13 @@
           <hr>
         </div>
         <ul id="toDo_list">
-          <li class="item"><input class="check-box" type="checkbox"><p>Take a shower</p></input></li>
-          <li class="item"><input class="check-box" type="checkbox"><p>Go shopping</p></input></li>
-          <li class="item"><input class="check-box" type="checkbox"><p>Do homework</p></input></li>
+          <li class="item"><input id="roundedTwo" name="check" class="check-box"   type="checkbox"><p>Take a shower</p></input></li>
+          <li class="item"><input id="roundedTwo" name="check" class="check-box" value="None" type="checkbox"><p>Go shopping</p></input></li>
+          <li class="item"><input id="roundedTwo" name="check" class="check-box" value="None" type="checkbox"><p>Do homework</p></input></li>
         </ul>
         <form id="show-completed">
-          <div class="form-group">
-              <input type="submit" class="btn btn-success" value="Show Completed">
-          </div>
+          <div class="form-group text-center">
+              <input id="show-completed" type="submit" class="btn btn-success" value="Show Completed">
         </form>
       </div>
     </div>
@@ -53,5 +50,6 @@
 
   <!-- custom script -->
   <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 </body>
 </html>

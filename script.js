@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+$.backstretch ("images/notebook2.jpg");
+
 var $form = $('#new_todo_item');
 var $formInput = $('#item_name');
 var toDoArr = []; 
@@ -23,9 +25,10 @@ $ul.on("click", '.item', function(){
 	$(this).addClass("done");
 	$(this).css('text-decoration', 'line-through')
 	$(this).fadeOut('slow', 0);
-	completedItems.push($done);
+	completedItems.push(this);
 	console.log(completedItems);
 })
+
 
 
 
@@ -35,11 +38,20 @@ var $showComp = $('#show-completed');
 
 
 
+
 $showComp.on('submit', function(){
-	$done.show(fast, 1);
+	event.preventDefault();
+	$('.done').fadeIn('fast', 1);
+	$(completedItems).each(function(index, textContent){
+	console.log("completedItems Array " + index + " " + textContent);
+	 })
+	// $done.show(fast, 1);
 	console.log('the button was clicked');
+	
 
 });
+
+
 
 
 })
