@@ -22,7 +22,7 @@ div.form-group{
 	padding-bottom: 3%;
 }
 
-ul#toDo_list {
+ul#task-list-ul {
 	list-style: none;
 	line-height: 3;
 }
@@ -54,6 +54,10 @@ p {
   background-color: #FF3737;
   border-color: #F25A5A;
   font-family: 'Raleway', sans-serif;
+}
+
+.btn:hover {
+  background-color: #FF3737;
 }
 
 /* .roundedTwo */

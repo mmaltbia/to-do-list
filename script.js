@@ -1,58 +1,77 @@
 $(document).ready(function(){
 
-$.backstretch ("images/notebook2.jpg");
+// Array that holds each task, description of task, and due date
+var toDoArr = [
 
+	{name: "Pick up dry cleaning",
+	description: "By 5 P.M."},
+
+	{name: "Wash Car",
+	description: "By 10 A.M."},
+
+	{name: "Pack for Vacation",
+	description: "By 8 A.M."}
+];
+
+// Form to create new task 
 var $form = $('#new_todo_item');
-var $formInput = $('#item_name');
-var toDoArr = []; 
 
-$form.on("submit", function(){
+
+// Var for task list
+var $taskListUl = $("#task-list-ul");
+
+ // append existing todos (from seed data) to `$toDoList`
+  // `_.each` is an "iterator" function provided by Underscore.js
+_.each(toDoArr, function (task, index) {
+  $taskListUl.append('<li class="item"><p>' + task.name + ' - ' + task.description + '</p></li>');
+});
+
+ // submit form to create new todo
+$form.on('submit', function(name, description){
 	event.preventDefault();
-	console.log('You pressed submit!');
-	var $newLi = $('<li class="item"><input class="check-box" type="checkbox"><p>' + $formInput.val() + '</p></input></li>');
-	$('#toDo_list').append($newLi);
-	toDoArr.push($formInput.val());
-	console.log(toDoArr);
+	var $name = $('#form-input-task').val();
+	var $description = $('#form-input-description').val();
+	var $taskData = {name: $name, description: $description};
+	toDoArr.push($taskData);
+	$taskListUl.append('<li class="item"><p>' + $name + ' - ' + $description + '</p></li>');
+	$form[0].reset();
 })
 
-var $li = $('.item');
-var $ul = $('#toDo_list');
 
-console.log($li);
+//Full Width Background Image
+$.backstretch("images/notebook2.jpg");
 
+// Var for task list
+var $taskListUl = $("#task-list-ul");
 
-$ul.on("click", '.item', function(){
+// Var for the add to list button 
+var $addBtn = $("#add-btn");
+
+// Var for show completed button 
+var $showCompletedBtn = ("#show-completed");
+
+console.log($('#underscore-template').html());
+
+// Var for underscore template
+var $underscoreTemplate = _.template($('#underscore-template').html());
+
+// Var for task list in template portion of HTM
+var $taskListTemplate = $("#task-list-template");
+
+// Var for task and description input fields
+var $formInputTask = $("#form-input-task");
+var $formInputDescription = $("form-input-description");
+var $li = $("li");
+
+$taskListUl.on("click", ".item", function(){
 	$(this).addClass("done");
+
 	$(this).css('text-decoration', 'line-through')
 	$(this).fadeOut('slow', 0);
 	completedItems.push(this);
 	console.log(completedItems);
 })
-
-
-
-
-var completedItems = [];
-var $done = $('.done');
-var $showComp = $('#show-completed');
-
-
-
-
-$showComp.on('submit', function(){
-	event.preventDefault();
-	$('.done').fadeIn('fast', 1);
-	$(completedItems).each(function(index, textContent){
-	console.log("completedItems Array " + index + " " + textContent);
-	 })
-	// $done.show(fast, 1);
-	console.log('the button was clicked');
-	
-
-});
-
-
-
+ 	
 
 })
 
@@ -64,11 +83,40 @@ $showComp.on('submit', function(){
 
 
 
+//Script from original working file that is now non working thanks to my refactor
+
+// var completedItems = [];
+// var $done = $('.done');
+// var $showComp = $('#show-completed');
 
 
 
 
+// $showComp.on('submit', function(){
+// 	event.preventDefault();
+// 	$('.done').fadeIn('fast', 1);
+// 	$(completedItems).each(function(index, textContent){
+// 	console.log("completedItems Array " + index + " " + textContent);
+// 	 })
+// 	// $done.show(fast, 1);
+// 	console.log('the button was clicked');
+	
 
+// var $li = $('.item');
+// var $ul = $('#toDo_list');
+
+// console.log($li);
+
+
+// $ul.on("click", '.item', function(){
+// 	$(this).addClass("done");
+// 	$(this).css('text-decoration', 'line-through')
+// 	$(this).fadeOut('slow', 0);
+// 	completedItems.push(this);
+// 	console.log(completedItems);
+// })
+
+// });
 
 
 //SCRIPT FROM CLASS
@@ -97,4 +145,3 @@ $showComp.on('submit', function(){
 
 // var $newToDoItem = ('<li>' + $item1["item_name"] + '</li>');
 // $('#toDo_list').append($newToDoItem);
-// });

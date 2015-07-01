@@ -21,18 +21,17 @@
           <h1>To Do List</h1>
           <form id="new_todo_item">
             <div class="form-group">
-              <input class="form-control" id="item_name" placeholder="What do you need to do?" autofocus>
+              <input class="form-control" id="form-input-task" placeholder="What do you need to do?" autofocus>
+              <input class="form-control" id="form-input-description" placeholder="Description" autofocus>
             </div>
             <div class="form-group">
-              <input type="submit" class="btn btn-success" value="Add to list!">
+              <input type="submit" class="btn btn-success" id="add-btn" value="Add to list!">
             </div>
           </form>
           <hr>
         </div>
-        <ul id="toDo_list">
-          <li class="item"><input id="roundedTwo" name="check" class="check-box"   type="checkbox"><p>Take a shower</p></input></li>
-          <li class="item"><input id="roundedTwo" name="check" class="check-box" value="None" type="checkbox"><p>Go shopping</p></input></li>
-          <li class="item"><input id="roundedTwo" name="check" class="check-box" value="None" type="checkbox"><p>Do homework</p></input></li>
+        <ul id="task-list-ul">
+          
         </ul>
         <form id="show-completed">
           <div class="form-group text-center">
@@ -48,8 +47,20 @@
   <!-- Latest compiled and minified Bootstrap JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+  <!-- underscore -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+
   <!-- custom script -->
-  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+
+  <script type="text/template" id="underscore-template">
+    <div id="task-list-template">
+      <p>
+        <%= name %> - <%= description %>
+      </p>
+    </div>
+  </script>
+</body>
 </body>
 </html>
